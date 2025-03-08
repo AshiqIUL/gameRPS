@@ -9,6 +9,7 @@ let yourTotal = 0;
 let compTotal = 0;
 let yourChoice;
 
+
 rock.addEventListener("click", () => {
     yourChoice = 0;
     playGame();
@@ -25,13 +26,18 @@ scissor.addEventListener("click", () => {
 });
 
 function playGame() {
+    let choices={
+        "0":"rock",
+        "1":"paper",
+        "2":"scissor"
+    };
     let computerChoice = Math.floor(Math.random() * 3);
-    console.log(`Your Choice: ${yourChoice}`);
-    console.log(`Computer Choice: ${computerChoice}`);
-
+    console.log(`Your Choice: ${choices[yourChoice]}`);
+    console.log(`Computer Choice: ${choices[computerChoice]}`);
+    let your=yourChoice.value;
     if (yourChoice === computerChoice) {
         console.log("It's a tie");
-        msg.innerText = "It's a tie";
+        msg.innerText = `It's a tie ( Your ${choices[yourChoice]} ties with ${choices[computerChoice]} )`;
         msg.style.backgroundColor="blue";
         msg.style.color="white";
     } 
@@ -42,7 +48,7 @@ function playGame() {
         (yourChoice === 2 && computerChoice === 1)    
     ) {
         console.log("You win!");
-        msg.innerText = "You win";
+        msg.innerText = `You win  ( Your ${choices[yourChoice]} beats ${choices[computerChoice]} )`;
         msg.style.backgroundColor="green";
         msg.style.color="white";
         yourTotal++;
@@ -50,7 +56,7 @@ function playGame() {
     
     else {
         console.log("Computer wins!");
-        msg.innerText = "Computer wins";
+        msg.innerText = `Computer wins  ( Your ${choices[yourChoice]} defeated by  ${choices[computerChoice]} )`;
         msg.style.backgroundColor="red";
         msg.style.color="white";
         compTotal++; 
