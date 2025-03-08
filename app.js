@@ -8,6 +8,11 @@ let comp = document.querySelector("#comp");
 let yourTotal = 0;
 let compTotal = 0;
 let yourChoice;
+let choices={
+        "0":"rock",
+        "1":"paper",
+        "2":"scissor"
+    };
 
 
 rock.addEventListener("click", () => {
@@ -26,11 +31,6 @@ scissor.addEventListener("click", () => {
 });
 
 function playGame() {
-    let choices={
-        "0":"rock",
-        "1":"paper",
-        "2":"scissor"
-    };
     let computerChoice = Math.floor(Math.random() * 3);
     console.log(`Your Choice: ${choices[yourChoice]}`);
     console.log(`Computer Choice: ${choices[computerChoice]}`);
